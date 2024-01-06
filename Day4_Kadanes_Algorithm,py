@@ -1,0 +1,37 @@
+#Approach1_BruteForce_TimeComplexity_O(Ncube)
+
+def MaxSum(arr, n):
+    maxi = float('-inf')
+    for i in range(n):
+        for j in range(i,n):
+            sum = 0
+            for k in range(i,j):
+                sum+=arr[k]
+                maxi = max(maxi,sum)
+    return maxi
+
+#Approach2_Better_TimeComplexity_O(Nsquare)
+
+def MaxSum(arr, n):
+    maxi = float('-inf')
+    for i in range(n):
+        sum = 0
+        for j in range(i,n):
+            sum+=arr[j]
+            maxi = max(maxi,sum)
+    return maxi
+
+#Approach3_Optimal_TC_O(N)
+
+def maxSubarraySum(arr, n):
+    summ = 0
+    maxi = float('-inf')
+    for i in range(n):
+        summ += arr[i]
+        if summ < 0:
+            summ = 0
+        if summ>0:
+            maxi = max(maxi,summ)
+    if maxi < 0:
+        maxi = 0
+    return maxi
